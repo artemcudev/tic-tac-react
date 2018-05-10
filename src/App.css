@@ -1,6 +1,10 @@
-body {
+#root {
 	font: 14px "Century Gothic", Futura, sans-serif;
 	margin: 20px;
+}
+.game {
+	width: 285px;
+	margin: 0 auto;
 }
 
 ol, ul {
@@ -47,4 +51,10 @@ ol, ul {
 
 .game-info {
 	margin-left: 20px;
+}
+.bold {
+	font-weight: bold;
+}
+.winner {
+	background: #61dafb;
 }
