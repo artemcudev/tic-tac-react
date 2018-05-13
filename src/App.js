@@ -52,9 +52,10 @@ class Game extends React.Component {
 					squares: Array(9).fill(null)
 				}
 			],
+			reverse: false,
 			stepNumber: 0,
 			xIsNext: true,
-			selected: 0
+			selected: 0,
 		};
 	}
 
@@ -82,6 +83,12 @@ class Game extends React.Component {
 		this.setState({
 			stepNumber: step,
 			xIsNext: (step % 2) === 0
+		});
+	}
+
+	handleReverse() {
+		this.setState({
+			reverse: !this.state.reverse
 		});
 	}
 
@@ -114,6 +121,9 @@ class Game extends React.Component {
 			}
 		}
 
+		if (this.state.reverse) {
+			moves.reverse();
+		}
 		return (
 			<div className="game">
 				<div className="game-board">
@@ -126,6 +136,7 @@ class Game extends React.Component {
 				<div className="game-info">
 					<div>{status}</div>
 					<ol>{moves}</ol>
+					<button onClick={() => this.handleReverse()}>Reverse</button>
 				</div>
 			</div>
 		);
